@@ -3,6 +3,7 @@
 #include "nmea_errors.h"
 #include "nmea_parser.h"
 #include "nmea_types.h"
+#include "nmea_protocols.h"
 
 int main(void)
 {
@@ -19,7 +20,7 @@ int main(void)
     }
 
     
-    status = parse_gga(nmea_string, &msg);
+    status = parse_gga(&msg, nmea_string);
 
     if (status == NMEA_OK) {
         fprintf(stdout, "The given string is: %s\n", nmea_string);
