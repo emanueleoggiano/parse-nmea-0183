@@ -1,12 +1,11 @@
-#include "../include/nmea_parser.h"
-#include "../include/nmea_errors.h"
+#include "nmea_parser.h"
+#include "nmea_errors.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
 #include <stdlib.h>
 
 #define BUFF_SIZE 20
-#define MAX_GGA_FIELDS 14
 
 /* Compute the checksum of a given NMEA0183 string.   */
 /* Check whether the calculated checksum is equal to  */

@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "../include/nmea_errors.h"
-#include "../include/nmea_parser.h"
-#include "../include/nmea_types.h"
+#include "nmea_errors.h"
+#include "nmea_parser.h"
+#include "nmea_types.h"
 
 int main(void)
 {
