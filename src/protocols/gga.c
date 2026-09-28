@@ -1,3 +1,8 @@
+#include "nmea_errors.h"
+#include "nmea_types.h"
+#include "protocols/gga.h"
+
+
 /* Initialize a GGA MSG. This is necessary before parsing the string */
 /*           in case of errors during the parsing operations         */
 enum NmeaErrCodes initialize_gga(struct GGA *gga_msg)
