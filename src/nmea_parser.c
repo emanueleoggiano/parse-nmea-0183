@@ -5,8 +5,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define BUFF_SIZE 20
-
 /* Compute the checksum of a given NMEA0183 string.   */
 /* Check whether the calculated checksum is equal to  */
 /* the given checksum in the NMEA0183 string          */

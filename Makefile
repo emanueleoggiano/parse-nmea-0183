@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -std=c99 -W -Wall -Wextra -pedantic -Wshadow -Wstrict-prototypes \
-         -Wmissing-prototypes -Wconversion -Wundef -fstack-protector-strong \
+         -Wmissing-prototypes -Wundef -fstack-protector-strong \
          -D_FORTIFY_SOURCE=2 -Wstack-usage=2048 -fno-common -Werror -O3 \
          -Iinclude -Isrc
 

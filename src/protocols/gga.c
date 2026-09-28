@@ -1,6 +1,13 @@
+#include <stddef.h>
+#include <string.h>
+#include <stdlib.h>
+
 #include "nmea_errors.h"
 #include "nmea_types.h"
+#include "nmea_parser.h"
 #include "protocols/gga.h"
+
+#define BUFF_SIZE 20
 
 
 /* Initialize a GGA MSG. This is necessary before parsing the string */
