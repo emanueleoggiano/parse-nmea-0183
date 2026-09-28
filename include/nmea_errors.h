@@ -1,0 +1,17 @@
+#ifndef NMEA_ERRORS_H
+#define NMEA_ERRORS_H
+
+enum NmeaErrCodes {
+    NMEA_OK = 0,
+    NMEA_ERR_BAD_CHECKSUM = -1,
+    NMEA_ERR_BAD_ASSIGNMENT = -2,
+    NMEA_ERR_BAD_STRING = -3,
+    NMEA_ERR_NO_DATA = -4,
+    NMEA_ERR_BUFFER_OVERFLOW = -5,
+    NMEA_ERR_INVALID_ARGUMENT = -6,
+    NMEA_ERR_INVALID_INDEX = -7,
+    NMEA_ERR_TOO_MANY_FIELDS = -8
+    
+};
+
+#endif // NMEA_ERRORS_H
