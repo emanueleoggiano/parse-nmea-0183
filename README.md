@@ -1,6 +1,6 @@
 # NMEA-0183 Parser
 
-_parse-nmea-0183_ extracts useful information from a given NMEA-0183 string.
+A zero allocations, fail fast C parser for NMEA-0183 data. It focuses on memory safety and strict error handling.
 
 ## Supported messages
 
@@ -8,8 +8,10 @@ Right now, the only supported message is `GGA`. Other types of messages will be 
 
 ## Setup
 
-In order to compile type `make` and it will generate the binary (`nmea_parser`).
+The project uses Makefile. In order to compile type `make` and it will generate the binary (`nmea_parser`).
+No external dependencies are required.
 
+## How does it work
 
 ## Documentation
 
