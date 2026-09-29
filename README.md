@@ -35,8 +35,6 @@ make
 
 First of all you must include all the libraries inside the include folder.
 ```C
-#include <stdio.h>
-
 #include "nmea_errors.h"
 #include "nmea_parser.h"
 #include "nmea_types.h"
@@ -45,18 +43,18 @@ First of all you must include all the libraries inside the include folder.
 
 Then you have to declare two structures: an NmeaErrCodes enum, which will be used to check potential errors, and the message struct (in this particular case the GGA struct).
 ```C
-    enum NmeaErrCodes status;
-    struct GGA msg;
+enum NmeaErrCodes status;
+struct GGA msg;
 ```
 
 You must initialize your struct with default data
 ```C
-    status = initialize_gga(&msg);
+status = initialize_gga(&msg);
 ```
 
 After checking the status, you can safely parse your NMEA-0183 string
 ```C
-    status = parse_gga(&msg, nmea_string);
+status = parse_gga(&msg, nmea_string);
 ```
 
 ## Documentation
