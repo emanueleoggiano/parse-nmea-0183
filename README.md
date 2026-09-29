@@ -33,9 +33,8 @@ make
 
 ## Examples of usage
 
+First of all you must include all the libraries inside the include folder.
 ```C
-# First of all you must include all the libraries inside the include folder.
-
 #include <stdio.h>
 
 #include "nmea_errors.h"
@@ -44,21 +43,19 @@ make
 #include "nmea_protocols.h"
 ```
 
+Then you have to declare two structures: an NmeaErrCodes enum, which will be used to check potential errors, and the message struct (in this particular case the GGA struct).
 ```C
-# Then you have to declare two structures: an NmeaErrCodes enum, which will be used to check potential errors, and the message struct (in this particular case the GGA struct)
-
     enum NmeaErrCodes status;
     struct GGA msg;
 ```
 
+You must initialize your struct with default data
 ```C
-# You must initialize your struct with default data
     status = initialize_gga(&msg);
 ```
 
+After checking the status, you can safely parse your NMEA-0183 string
 ```C
-# After checking the status, you can safely parse your NMEA-0183 string
-
     status = parse_gga(&msg, nmea_string);
 ```
 
