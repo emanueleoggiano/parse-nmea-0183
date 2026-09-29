@@ -4,7 +4,7 @@ CFLAGS = -std=c99 -W -Wall -Wextra -pedantic -Wshadow -Wstrict-prototypes \
          -D_FORTIFY_SOURCE=2 -Wstack-usage=2048 -fno-common -Werror -O3 \
          -Iinclude -Isrc
 
-SRCS = $(wildcard src/*.c) $(wildcard src/protocols/*.c)
+SRCS = $(wildcard src/*.c) $(wildcard src/protocols/*.c) $(wildcard test/*.c)
 
 TARGET = nmea_parser
 
