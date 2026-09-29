@@ -9,7 +9,11 @@ A zero allocations, fail fast C parser for NMEA-0183 data. It focuses on memory 
 
 ## Supported Messages
 
-Right now, the only supported message is `GGA`. Other types of messages will be supported in future.
+Right now, the only supported message are:
+* `GGA` -> Time, position, and fix related data; 
+* `ZDA` -> UTC day, month, and year, and local time zone offset.
+
+Other types of messages will be supported in future.
 
 ## Setup
 
