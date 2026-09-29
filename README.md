@@ -16,3 +16,7 @@ No external dependencies are required.
 ## Documentation
 
 * [Trimble](https://receiverhelp.trimble.com/alloy-gnss/en-us/NMEA-0183messages_MessageOverview.html)
+
+## License
+
+This project has been released under the BSD 3-Clause License.
