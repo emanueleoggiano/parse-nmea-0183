@@ -5,6 +5,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+/*************************** CHECKSUM ***************************/
+
 /* Compute the checksum of a given NMEA0183 string.   */
 /* Check whether the calculated checksum is equal to  */
 /* the given checksum in the NMEA0183 string          */
@@ -38,4 +40,25 @@ enum NmeaErrCodes validate_checksum(const char *s)
     }
 
     return NMEA_ERR_BAD_CHECKSUM;
+}
+
+
+/*************************** UTILITIES ***************************/
+
+/* Find the position of the first field in a NMEA-0183 string */
+enum NmeaErrCodes skip_msg_id(const char *s, size_t *index)
+{
+	if (s == NULL || index == NULL) {
+		return NMEA_ERR_INVALID_ARGUMENT;
+	}
+
+	char *first_comma = strchr(s, ',');
+
+	if (first_comma == NULL) {
+		return NMEA_ERR_BAD_STRING;
+	}
+
+	*index = (size_t)(first_comma - s + 1);
+
+	return NMEA_OK;
 }

@@ -106,26 +106,28 @@ enum NmeaErrCodes parse_gga(struct GGA *gga_msg, const char *s)
         return NMEA_ERR_INVALID_ARGUMENT;
     }
 
-    if (s[0] != '$' || strlen(s) < 7) {
+    if (s[0] != '$') {
         return NMEA_ERR_BAD_STRING;
     }
 
-    enum NmeaErrCodes checksum = validate_checksum(s);
+	size_t first_field_index = 0;
+	char tmp_buff[BUFF_SIZE];
+	size_t curr_buff_size = 0;
+	uint8_t curr_field = 1;
 
-    if (checksum != NMEA_OK) {
+	enum NmeaErrCodes status = skip_msg_id(s, &first_field_index);
+
+	if (status != NMEA_OK) {
+		return NMEA_ERR_BAD_STRING;
+	}
+
+    status = validate_checksum(s);
+
+    if (status != NMEA_OK) {
         return NMEA_ERR_BAD_CHECKSUM;
     }
 
-    char tmp_buff[BUFF_SIZE];
-    size_t curr_buff_size = 0;
-    uint8_t curr_field = 1;
-    enum NmeaErrCodes assign_succ = NMEA_OK;
-
-    /* Skipping the message id. A function should return the index */
-    /* of the first field after the message id field.              */
-    size_t i = 7;
-
-    for (; s[i] != '*' && s[i] != 0; i++) {
+    for (size_t i = first_field_index; s[i] != '*' && s[i] != 0; i++) {
 
         if (s[i] != ',' && curr_buff_size < BUFF_SIZE - 1) {
 
@@ -138,9 +140,9 @@ enum NmeaErrCodes parse_gga(struct GGA *gga_msg, const char *s)
 
             tmp_buff[curr_buff_size] = '\0';
 
-            assign_succ = assign_gga_field(gga_msg, tmp_buff, curr_field);
+            status = assign_gga_field(gga_msg, tmp_buff, curr_field);
 
-            if (assign_succ != NMEA_OK) {
+            if (status != NMEA_OK) {
                 return NMEA_ERR_BAD_ASSIGNMENT;
             }
 
@@ -156,9 +158,9 @@ enum NmeaErrCodes parse_gga(struct GGA *gga_msg, const char *s)
 
     tmp_buff[curr_buff_size] = '\0';
 
-    assign_succ = assign_gga_field(gga_msg, tmp_buff, curr_field);
+    status = assign_gga_field(gga_msg, tmp_buff, curr_field);
 
-    if (assign_succ != NMEA_OK) {
+    if (status != NMEA_OK) {
         return NMEA_ERR_BAD_ASSIGNMENT;
     }
 
