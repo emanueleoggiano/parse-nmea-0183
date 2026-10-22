@@ -10,7 +10,7 @@
 #define BUFF_SIZE 30
 
 
-NmeaErrCodes initialize_zda(struct ZDA *msg)
+NmeaErrCodes initialize_zda(ZDA *msg)
 {
 	if (msg == NULL) {
 		return NMEA_ERR_INVALID_ARGUMENT;
@@ -27,7 +27,7 @@ NmeaErrCodes initialize_zda(struct ZDA *msg)
 	return NMEA_OK;
 }
 
-NmeaErrCodes assign_zda_field(struct ZDA *msg, const char *buff, size_t index)
+NmeaErrCodes assign_zda_field(ZDA *msg, const char *buff, size_t index)
 {
 	if (msg == NULL || buff == NULL) {
 		return NMEA_ERR_INVALID_ARGUMENT;
@@ -65,7 +65,7 @@ NmeaErrCodes assign_zda_field(struct ZDA *msg, const char *buff, size_t index)
 }
 
 
-NmeaErrCodes parse_zda(struct ZDA *msg, const char *s)
+NmeaErrCodes parse_zda(ZDA *msg, const char *s)
 {
 	if (msg == NULL || s == NULL) {
 		return NMEA_ERR_INVALID_ARGUMENT;

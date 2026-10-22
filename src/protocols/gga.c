@@ -12,7 +12,7 @@
 
 /* Initialize a GGA MSG. This is necessary before parsing the string */
 /*           in case of errors during the parsing operations         */
-NmeaErrCodes initialize_gga(struct GGA *gga_msg)
+NmeaErrCodes initialize_gga(GGA *gga_msg)
 {
     if (gga_msg == NULL) {
         return NMEA_ERR_INVALID_ARGUMENT;
@@ -39,7 +39,7 @@ NmeaErrCodes initialize_gga(struct GGA *gga_msg)
 }
 
 
-NmeaErrCodes assign_gga_field(struct GGA *gga_msg, const char *buff, size_t index)
+NmeaErrCodes assign_gga_field(GGA *gga_msg, const char *buff, size_t index)
 {
     if (gga_msg == NULL || buff == NULL) {
         return NMEA_ERR_INVALID_ARGUMENT;
@@ -100,7 +100,7 @@ NmeaErrCodes assign_gga_field(struct GGA *gga_msg, const char *buff, size_t inde
     return NMEA_OK;
 }
 
-NmeaErrCodes parse_gga(struct GGA *gga_msg, const char *s)
+NmeaErrCodes parse_gga(GGA *gga_msg, const char *s)
 {
     if (gga_msg == NULL || s == NULL) {
         return NMEA_ERR_INVALID_ARGUMENT;

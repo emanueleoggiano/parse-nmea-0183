@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-struct GGA {
+typedef struct {
     double latitude;
     double longitude;
 
@@ -21,9 +21,9 @@ struct GGA {
     char lon_dir; // longitude direction (E/W)
     char alt_uom; // unit of measure for altitude (the standard is M)
     char geoid_uom; // unit of measure for geoid separation (the standard is M)
-};
+} GGA;
 
-struct ZDA {
+typedef struct {
 	float utc_time;
 
 	uint16_t year;
@@ -31,6 +31,6 @@ struct ZDA {
 	uint8_t min_gmt_offset;
 	uint8_t day; // from 01 to 31
 	uint8_t month; // from 01 to 12
-};
+} ZDA;
 
 #endif // TYPES_H
