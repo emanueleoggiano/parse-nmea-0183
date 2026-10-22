@@ -47,8 +47,8 @@ First of all you must include all the libraries inside the include folder.
 
 Then you have to declare two structures: an NmeaErrCodes enum, which will be used to check potential errors, and the message struct (in this particular case the GGA struct).
 ```C
-enum NmeaErrCodes status;
-struct GGA msg;
+NmeaErrCodes status;
+GGA msg;
 ```
 
 You must initialize your struct with default data
