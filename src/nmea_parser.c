@@ -10,7 +10,7 @@
 /* Compute the checksum of a given NMEA0183 string.   */
 /* Check whether the calculated checksum is equal to  */
 /* the given checksum in the NMEA0183 string          */
-enum NmeaErrCodes validate_checksum(const char *s)
+NmeaErrCodes validate_checksum(const char *s)
 {
     if (s == NULL) {
         return NMEA_ERR_INVALID_ARGUMENT;
@@ -46,7 +46,7 @@ enum NmeaErrCodes validate_checksum(const char *s)
 /*************************** UTILITIES ***************************/
 
 /* Find the position of the first field in a NMEA-0183 string */
-enum NmeaErrCodes skip_msg_id(const char *s, size_t *index)
+NmeaErrCodes skip_msg_id(const char *s, size_t *index)
 {
 	if (s == NULL || index == NULL) {
 		return NMEA_ERR_INVALID_ARGUMENT;

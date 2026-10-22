@@ -8,11 +8,11 @@
 /******************* CHECK SUM *******************/
 
 // Valide the given checksum using XOR
-enum NmeaErrCodes validate_checksum(const char *s);
+NmeaErrCodes validate_checksum(const char *s);
 
 /******************* UTILITIES *******************/
 
 // Find the index relative to the first field
-enum NmeaErrCodes skip_msg_id(const char *s, size_t *index);
+NmeaErrCodes skip_msg_id(const char *s, size_t *index);
 
 #endif // NMEA_PARSER_H

@@ -12,7 +12,7 @@
 
 /* Initialize a GGA MSG. This is necessary before parsing the string */
 /*           in case of errors during the parsing operations         */
-enum NmeaErrCodes initialize_gga(struct GGA *gga_msg)
+NmeaErrCodes initialize_gga(struct GGA *gga_msg)
 {
     if (gga_msg == NULL) {
         return NMEA_ERR_INVALID_ARGUMENT;
@@ -39,7 +39,7 @@ enum NmeaErrCodes initialize_gga(struct GGA *gga_msg)
 }
 
 
-enum NmeaErrCodes assign_gga_field(struct GGA *gga_msg, const char *buff, size_t index)
+NmeaErrCodes assign_gga_field(struct GGA *gga_msg, const char *buff, size_t index)
 {
     if (gga_msg == NULL || buff == NULL) {
         return NMEA_ERR_INVALID_ARGUMENT;
@@ -100,7 +100,7 @@ enum NmeaErrCodes assign_gga_field(struct GGA *gga_msg, const char *buff, size_t
     return NMEA_OK;
 }
 
-enum NmeaErrCodes parse_gga(struct GGA *gga_msg, const char *s)
+NmeaErrCodes parse_gga(struct GGA *gga_msg, const char *s)
 {
     if (gga_msg == NULL || s == NULL) {
         return NMEA_ERR_INVALID_ARGUMENT;
@@ -115,7 +115,7 @@ enum NmeaErrCodes parse_gga(struct GGA *gga_msg, const char *s)
 	size_t curr_buff_size = 0;
 	uint8_t curr_field = 1;
 
-	enum NmeaErrCodes status = skip_msg_id(s, &first_field_index);
+    NmeaErrCodes status = skip_msg_id(s, &first_field_index);
 
 	if (status != NMEA_OK) {
 		return NMEA_ERR_BAD_STRING;

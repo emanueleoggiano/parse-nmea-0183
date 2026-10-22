@@ -1,5 +1,6 @@
 #include <stddef.h>
-#include <stdint.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "nmea_errors.h"
 #include "nmea_types.h"
@@ -9,7 +10,7 @@
 #define BUFF_SIZE 30
 
 
-enum NmeaErrCodes initialize_zda(struct ZDA *msg)
+NmeaErrCodes initialize_zda(struct ZDA *msg)
 {
 	if (msg == NULL) {
 		return NMEA_ERR_INVALID_ARGUMENT;
@@ -25,7 +26,8 @@ enum NmeaErrCodes initialize_zda(struct ZDA *msg)
 
 	return NMEA_OK;
 }
-enum NmeaErrCodes assign_zda_field(struct ZDA *msg, const char *buff, size_t index)
+
+NmeaErrCodes assign_zda_field(struct ZDA *msg, const char *buff, size_t index)
 {
 	if (msg == NULL || buff == NULL) {
 		return NMEA_ERR_INVALID_ARGUMENT;
@@ -63,7 +65,7 @@ enum NmeaErrCodes assign_zda_field(struct ZDA *msg, const char *buff, size_t ind
 }
 
 
-enum NmeaErrCodes parse_zda(struct ZDA *msg, const char *s)
+NmeaErrCodes parse_zda(struct ZDA *msg, const char *s)
 {
 	if (msg == NULL || s == NULL) {
 		return NMEA_ERR_INVALID_ARGUMENT;
@@ -77,7 +79,7 @@ enum NmeaErrCodes parse_zda(struct ZDA *msg, const char *s)
 	size_t curr_buff_size = 0;
 	char tmp_buff[BUFF_SIZE];
 	uint8_t curr_field = 1;
-	enum NmeaErrCodes status = skip_msg_id(s, &first_field_index);
+	NmeaErrCodes status = skip_msg_id(s, &first_field_index);
 
 	if (status != NMEA_OK) {
 		return NMEA_ERR_BAD_STRING;
